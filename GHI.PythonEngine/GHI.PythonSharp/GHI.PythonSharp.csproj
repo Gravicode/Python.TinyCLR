@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\GHIElectronics.TinyCLR.Core.2.0.0\build\net452\GHIElectronics.TinyCLR.Core.props" Condition="Exists('..\packages\GHIElectronics.TinyCLR.Core.2.0.0\build\net452\GHIElectronics.TinyCLR.Core.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D448BE3A-91E7-4CAD-B62A-58A4F55DAD3F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GHI.PythonSharp</RootNamespace>
+    <AssemblyName>GHI.PythonSharp</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A1948822-69DD-4150-919B-F3F42EFB71CC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Engine\BindingEnvironment.cs" />
+    <Compile Include="Engine\Commands\BreakCommand.cs" />
+    <Compile Include="Engine\Commands\ClassCommand.cs" />
+    <Compile Include="Engine\Commands\CompositeCommand.cs" />
+    <Compile Include="Engine\Commands\ContinueCommand.cs" />
+    <Compile Include="Engine\Commands\DefCommand.cs" />
+    <Compile Include="Engine\Commands\ExceptCommand.cs" />
+    <Compile Include="Engine\Commands\ExpressionCommand.cs" />
+    <Compile Include="Engine\Commands\ForCommand.cs" />
+    <Compile Include="Engine\Commands\ICommand.cs" />
+    <Compile Include="Engine\Commands\IfCommand.cs" />
+    <Compile Include="Engine\Commands\ImportCommand.cs" />
+    <Compile Include="Engine\Commands\ImportFromCommand.cs" />
+    <Compile Include="Engine\Commands\PassCommand.cs" />
+    <Compile Include="Engine\Commands\ReturnCommand.cs" />
+    <Compile Include="Engine\Commands\SetAttributeCommand.cs" />
+    <Compile Include="Engine\Commands\SetCommand.cs" />
+    <Compile Include="Engine\Commands\SetIndexCommand.cs" />
+    <Compile Include="Engine\Commands\TryCommand.cs" />
+    <Compile Include="Engine\Commands\WhileCommand.cs" />
+    <Compile Include="Engine\Compiler\ExpectedTokenException.cs" />
+    <Compile Include="Engine\Compiler\Lexer.cs" />
+    <Compile Include="Engine\Compiler\NameExpectedException.cs" />
+    <Compile Include="Engine\Compiler\Parser.cs" />
+    <Compile Include="Engine\Compiler\ParserException.cs" />
+    <Compile Include="Engine\Compiler\Token.cs" />
+    <Compile Include="Engine\Compiler\TokenType.cs" />
+    <Compile Include="Engine\Compiler\UnexpectedEndOfInputException.cs" />
+    <Compile Include="Engine\Compiler\UnexpectedTokenException.cs" />
+    <Compile Include="Engine\Exceptions\AttributeError.cs" />
+    <Compile Include="Engine\Exceptions\ImportError.cs" />
+    <Compile Include="Engine\Exceptions\NameError.cs" />
+    <Compile Include="Engine\Exceptions\SyntaxError.cs" />
+    <Compile Include="Engine\Exceptions\TypeError.cs" />
+    <Compile Include="Engine\Exceptions\ValueError.cs" />
+    <Compile Include="Engine\Expressions\AttributeExpression.cs" />
+    <Compile Include="Engine\Expressions\BinaryExpression.cs" />
+    <Compile Include="Engine\Expressions\BinaryOperatorExpression.cs" />
+    <Compile Include="Engine\Expressions\BooleanExpression.cs" />
+    <Compile Include="Engine\Expressions\CallExpression.cs" />
+    <Compile Include="Engine\Expressions\CompareExpression.cs" />
+    <Compile Include="Engine\Expressions\ConstantExpression.cs" />
+    <Compile Include="Engine\Expressions\DictionaryExpression.cs" />
+    <Compile Include="Engine\Expressions\IExpression.cs" />
+    <Compile Include="Engine\Expressions\IndexedExpression.cs" />
+    <Compile Include="Engine\Expressions\ListExpression.cs" />
+    <Compile Include="Engine\Expressions\NamedArgumentExpression.cs" />
+    <Compile Include="Engine\Expressions\NameExpression.cs" />
+    <Compile Include="Engine\Expressions\NegateExpression.cs" />
+    <Compile Include="Engine\Expressions\NotExpression.cs" />
+    <Compile Include="Engine\Expressions\ParameterExpression.cs" />
+    <Compile Include="Engine\Expressions\SlicedExpression.cs" />
+    <Compile Include="Engine\Expressions\SliceExpression.cs" />
+    <Compile Include="Engine\Functions\ContextFunction.cs" />
+    <Compile Include="Engine\Functions\DirFunction.cs" />
+    <Compile Include="Engine\Functions\EvalFunction.cs" />
+    <Compile Include="Engine\Functions\ExecFunction.cs" />
+    <Compile Include="Engine\Functions\ExitFunction.cs" />
+    <Compile Include="Engine\Functions\IdFunction.cs" />
+    <Compile Include="Engine\Functions\LenFunction.cs" />
+    <Compile Include="Engine\Functions\PrintFunction.cs" />
+    <Compile Include="Engine\Functions\RangeFunction.cs" />
+    <Compile Include="Engine\GlobalSuppressions.cs" />
+    <Compile Include="Engine\Language\BinaryOperator.cs" />
+    <Compile Include="Engine\Language\BooleanOperator.cs" />
+    <Compile Include="Engine\Language\ComparisonOperator.cs" />
+    <Compile Include="Engine\Language\DefinedClass.cs" />
+    <Compile Include="Engine\Language\DefinedFunction.cs" />
+    <Compile Include="Engine\Language\DynamicObject.cs" />
+    <Compile Include="Engine\Language\FunctionWrapper.cs" />
+    <Compile Include="Engine\Language\IContext.cs" />
+    <Compile Include="Engine\Language\IFunction.cs" />
+    <Compile Include="Engine\Language\IObject.cs" />
+    <Compile Include="Engine\Language\IType.cs" />
+    <Compile Include="Engine\Language\IValues.cs" />
+    <Compile Include="Engine\Language\Module.cs" />
+    <Compile Include="Engine\Language\NativeMethod.cs" />
+    <Compile Include="Engine\Language\Parameter.cs" />
+    <Compile Include="Engine\Language\Range.cs" />
+    <Compile Include="Engine\Language\Slice.cs" />
+    <Compile Include="Engine\Language\StringType.cs" />
+    <Compile Include="Engine\Machine.cs" />
+    <Compile Include="Engine\Numbers.cs" />
+    <Compile Include="Engine\Predicates.cs" />
+    <Compile Include="Engine\Strings.cs" />
+    <Compile Include="Engine\Types.cs" />
+    <Compile Include="Engine\Utilities\CommandUtilities.cs" />
+    <Compile Include="Engine\Utilities\ModuleUtilities.cs" />
+    <Compile Include="Engine\Utilities\ObjectUtilities.cs" />
+    <Compile Include="Engine\Utilities\TypeUtilities.cs" />
+    <Compile Include="Engine\Utilities\ValueUtilities.cs" />
+    <Compile Include="Helper\CharExtension.cs" />
+    <Compile Include="Helper\ConvertExtensions.cs" />
+    <Compile Include="Helper\Exceptions.cs" />
+    <Compile Include="Helper\CommunicationsBus.cs" />
+    <Compile Include="Libs\EventDelegates.cs" />
+    <Compile Include="Libs\Strings.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PythonSharpEngine.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Engine\Commands.cd" />
+    <None Include="Engine\Expressions.cd" />
+    <None Include="Engine\Language.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="GHIElectronics.TinyCLR.Devices.Uart, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GHIElectronics.TinyCLR.Devices.Uart.2.0.0\lib\net452\GHIElectronics.TinyCLR.Devices.Uart.dll</HintPath>
+    </Reference>
+    <Reference Include="GHIElectronics.TinyCLR.Drawing, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GHIElectronics.TinyCLR.Drawing.2.0.0\lib\net452\GHIElectronics.TinyCLR.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="GHIElectronics.TinyCLR.IO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GHIElectronics.TinyCLR.IO.2.0.0\lib\net452\GHIElectronics.TinyCLR.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="GHIElectronics.TinyCLR.Native, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GHIElectronics.TinyCLR.Native.2.0.0\lib\net452\GHIElectronics.TinyCLR.Native.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\GHIElectronics.TinyCLR.Core.2.0.0\build\net452\GHIElectronics.TinyCLR.Core.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\GHIElectronics.TinyCLR.Core.2.0.0\build\net452\GHIElectronics.TinyCLR.Core.props'))" />
+  </Target>
+</Project>
