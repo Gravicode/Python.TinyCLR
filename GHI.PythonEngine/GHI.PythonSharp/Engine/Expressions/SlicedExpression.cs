@@ -42,7 +42,8 @@
             if (end > list.Count)
                 end = list.Count;
 
-            IList result = new List<object>();
+            //IList result = new List<object>();
+            IList result = new ArrayList();
 
             for (int k = begin; k < end && k < list.Count; k++)
                 result.Add(list[k]);

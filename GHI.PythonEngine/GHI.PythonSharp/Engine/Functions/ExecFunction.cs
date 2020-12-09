@@ -1,8 +1,7 @@
 ﻿namespace GHI.PythonSharp.Functions
 {
     using System;
-    
-    
+    using System.Collections;
     using System.Text;
     using GHI.PythonSharp.Commands;
     using GHI.PythonSharp.Compiler;
@@ -12,7 +11,8 @@
 
     public class ExecFunction : IFunction
     {
-        public object Apply(IContext context, IList<object> arguments, IDictionary<string, object> namedArguments)
+        //public object Apply(IContext context, IList<object> arguments, IDictionary<string, object> namedArguments)
+        public object Apply(IContext context, ArrayList arguments, Hashtable namedArguments)
         {
             int nargs = arguments == null ? 0 : arguments.Count;
 

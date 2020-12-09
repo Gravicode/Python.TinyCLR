@@ -1,8 +1,7 @@
 ﻿namespace GHI.PythonSharp.Functions
 {
     using System;
-    
-    
+    using System.Collections;
     using System.Text;
     using GHI.PythonSharp.Language;
     using GHI.PythonSharp.Utilities;
@@ -16,10 +15,11 @@
             this.machine = machine;
         }
 
-        public object Apply(IContext context, IList<object> arguments, IDictionary<string, object> namedArguments)
+        //public object Apply(IContext context, IList<object> arguments, IDictionary<string, object> namedArguments)
+        public object Apply(IContext context, ArrayList arguments, Hashtable namedArguments)
         {
-            string separator = (namedArguments != null && namedArguments.ContainsKey("sep")) ? (string)namedArguments["sep"] : " ";
-            string end = (namedArguments != null && namedArguments.ContainsKey("end")) ? (string)namedArguments["end"] : null;
+            string separator = (namedArguments != null && namedArguments.Contains("sep")) ? (string)namedArguments["sep"] : " ";
+            string end = (namedArguments != null && namedArguments.Contains("end")) ? (string)namedArguments["end"] : null;
 
             if (arguments != null)
             {

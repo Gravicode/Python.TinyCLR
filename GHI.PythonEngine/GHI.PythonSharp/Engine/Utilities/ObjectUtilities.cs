@@ -2,8 +2,7 @@
 {
     using System;
     using System.Collections;
-    
-    
+    using System.Reflection;
     using System.Text;
     using GHI.PythonSharp.Language;
 
@@ -202,8 +201,9 @@
                     break;
             }
 
-            object wrapper = Activator.CreateInstance(wrappertype, function, context);
-
+            //object wrapper = Activator.CreateInstance(wrappertype, function, context);
+            var wrapper = wrappertype.InvokeMember(null, BindingFlags.CreateInstance,function,context,null);
+            
             @event.AddEventHandler(obj, (Delegate)GetValue(wrapper, isaction ? "CreateActionDelegate" : "CreateFunctionDelegate", null));
         }
 

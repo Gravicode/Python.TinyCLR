@@ -129,6 +129,7 @@
     <Compile Include="Helper\ConvertExtensions.cs" />
     <Compile Include="Helper\Exceptions.cs" />
     <Compile Include="Helper\CommunicationsBus.cs" />
+    <Compile Include="Helper\SortExtensions.cs" />
     <Compile Include="Libs\EventDelegates.cs" />
     <Compile Include="Libs\Strings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -138,6 +139,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="PythonSharpEngine.cs" />
+    <Compile Include="test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Engine\Commands.cd" />

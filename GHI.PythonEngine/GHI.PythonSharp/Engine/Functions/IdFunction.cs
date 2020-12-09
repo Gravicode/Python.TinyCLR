@@ -10,7 +10,8 @@
 
     public class IdFunction : IFunction
     {
-        public object Apply(IContext context, IList<object> arguments, IDictionary<string, object> namedArguments)
+        //public object Apply(IContext context, IList<object> arguments, IDictionary<string, object> namedArguments)
+        public object Apply(IContext context, ArrayList arguments, Hashtable namedArguments)
         {
             int nargs = arguments == null ? 0 : arguments.Count;
 

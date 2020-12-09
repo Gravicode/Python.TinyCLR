@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections;
+    using System.Reflection;
     using System.Text;
     using GHI.PythonSharp.Exceptions;
     using GHI.PythonSharp.Language;
@@ -106,7 +107,9 @@
                             {
                                 if (value is Type)
                                 {
-                                    return Activator.CreateInstance((Type)value, arguments == null ? null : arguments.ToArray());
+                                    //return Activator.CreateInstance((Type)value, arguments == null ? null : arguments.ToArray());
+                                    var instance = ((Type)value).InvokeMember(null, BindingFlags.CreateInstance, null, null, arguments == null ? null : arguments.ToArray());
+                                    return instance;
                                 }
                             }
                         }
@@ -132,7 +135,9 @@
                 if (function == null)
                 {
                     Type type = (Type)value;
-                    return Activator.CreateInstance(type, arguments == null ? null : arguments.ToArray());
+                    //return Activator.CreateInstance(type, arguments == null ? null : arguments.ToArray());
+                    var instance = type.InvokeMember(null, BindingFlags.CreateInstance, null, null, arguments == null ? null : arguments.ToArray());
+                    return instance;
                 }
             }
 

@@ -1,15 +1,15 @@
 ﻿namespace GHI.PythonSharp.Functions
 {
     using System;
-    
-    
+    using System.Collections;
     using System.Text;
     using GHI.PythonSharp.Exceptions;
     using GHI.PythonSharp.Language;
 
     public class RangeFunction : IFunction
     {
-        public object Apply(IContext context, IList<object> arguments, IDictionary<string, object> namedArguments)
+        //public object Apply(IContext context, IList<object> arguments, IDictionary<string, object> namedArguments)
+        public object Apply(IContext context, ArrayList arguments, Hashtable namedArguments)
         {
             if (arguments.Count == 1)
                 return new Range(Numbers.ToInteger(arguments[0]));

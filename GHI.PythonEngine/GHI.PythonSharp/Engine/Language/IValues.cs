@@ -1,8 +1,7 @@
 ﻿namespace GHI.PythonSharp.Language
 {
     using System;
-    
-    
+    using System.Collections;
     using System.Text;
 
     public interface IValues
@@ -13,6 +12,7 @@
 
         bool HasValue(string name);
 
-        ICollection<string> GetNames();
+        //ICollection<string> GetNames();
+        IList GetNames();
     }
 }

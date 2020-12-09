@@ -1,8 +1,7 @@
 ﻿namespace GHI.PythonSharp.Functions
 {
     using System;
-    
-    
+    using System.Collections;
     using System.Text;
     using GHI.PythonSharp.Compiler;
     using GHI.PythonSharp.Exceptions;
@@ -11,7 +10,8 @@
 
     public class EvalFunction : IFunction
     {
-        public object Apply(IContext context, IList<object> arguments, IDictionary<string, object> namedArguments)
+        //public object Apply(IContext context, IList<object> arguments, IDictionary<string, object> namedArguments)
+        public object Apply(IContext context, ArrayList arguments, Hashtable namedArguments)
         {
             int nargs = arguments == null ? 0 : arguments.Count;
 

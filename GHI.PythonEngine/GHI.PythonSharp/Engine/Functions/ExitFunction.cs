@@ -10,7 +10,8 @@
 
     public class ExitFunction : IFunction
     {
-        public object Apply(IContext context, IList<object> arguments, IDictionary<string, object> namedArguments)
+        //public object Apply(IContext context, IList<object> arguments, IDictionary<string, object> namedArguments)
+        public object Apply(IContext context, ArrayList arguments, Hashtable namedArguments)
         {
             int nargs = arguments == null ? 0 : arguments.Count;
 
@@ -22,7 +23,8 @@
             if (nargs > 0)
                 value = Numbers.ToInteger(arguments[0]);
 
-            System.Environment.Exit(value);
+            //do nothing, or reset interpreter
+            //System.Environment.Exit(value);
 
             return null;
         }
